@@ -1,51 +1,135 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
-import Layout from "../components/layout"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Masonry className="showcase">
-      {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))}
-    </Masonry>
-  </Layout>
-)
+import Hero from "../components/home/hero";
+import Intro from "../components/home/intro";
+import WhatWeDo from "../components/home/what-we-do";
+import CommunityCarousel from "../components/home/community-carousel";
+import HowYouCanHelp from "../components/home/how-you-can-help";
+import PatientAssistance from "../components/home/patient-assistance";
+import PatientStoriesCarousel from "../components/home/patient-stories-carousel";
+import AnnualEventsAccordion from "../components/home/annual-events-accordion";
 
-export default IndexPage
+const IndexPage = ({ data }) => {
+  const { datoCmsHome } = data;
+
+  return (
+    <Layout>
+      <HelmetDatoCms />
+      <div id="home" className={`page`}>
+        <Hero content={datoCmsHome.hero} />
+        <Intro content={datoCmsHome.intro} />
+        <WhatWeDo />
+        <CommunityCarousel />
+        <HowYouCanHelp />
+        <PatientAssistance />
+        <PatientStoriesCarousel />
+        <AnnualEventsAccordion />
+      </div>
+    </Layout>
+  );
+};
+
+export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
+    datoCmsHome {
+      hero {
+        ... on DatoCmsHeadline {
           id
-          title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
+          text
+        }
+        ... on DatoCmsBackgroundImage {
+          id
+          image {
+            fluid(
+              maxWidth: 2400
+              imgixParams: { fm: "jpg", auto: "compress" }
+            ) {
+              ...GatsbyDatoCmsFluid
             }
+          }
+        }
+      }
+      intro {
+        ... on DatoCmsIntroContent {
+          headline
+          copy
+        }
+        ... on DatoCmsImage {
+          image {
+            fluid(maxWidth: 550, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+      }
+      whatWeDo {
+        ... on DatoCmsWhatWeDoContent {
+          title
+          headline
+          copy
+        }
+        ... on DatoCmsImageIconGroup {
+          imagesIcons {
+            originalId
+            fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+      }
+      communityTitle
+      communityCarousel {
+        id
+        quote
+        quoteSaidBy
+      }
+      howYouCanHelp {
+        ... on DatoCmsHowYouCanHelpTitle {
+          title
+        }
+        ... on DatoCmsLeftColumn {
+          headline
+          subheadline
+          textBlock
+          ctaButtonText
+          ctaButtonUrl
+        }
+        ... on DatoCmsRightColumnItem {
+          headline
+          subheadline
+          ctaText
+          ctaUrl
+        }
+      }
+      patientAssistance {
+        headline
+        subheadline
+        copy
+        ctaButtonText
+        ctaButtonUrl
+      }
+      patientStoriesTitle
+      patientStoriesCarousel {
+        id
+        headline
+        copy
+      }
+      annualEventsTitle
+      annualEventsAccordion {
+        title
+        copy
+        image {
+          fluid(maxWidth: 750, imgixParams: { fm: "jpg", auto: "compress" }) {
+            ...GatsbyDatoCmsFluid
           }
         }
       }
     }
   }
-`
+`;

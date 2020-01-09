@@ -1,0 +1,34 @@
+.btn
+    padding: 15px 35px
+    curser: pointer
+    text-align: center
+    display: inline-block
+    text-transform: uppercase
+    text-decoration: none
+    font-family: nobel, sans-serif
+    font-weight: 400
+    font-style: normal
+    font-size: 0.666rem
+    line-height: 1
+    letter-spacing: .25em
+    border: 1px solid $black
+    color: $black
+    @include transition(.3s)
+    &:hover
+        background: $black
+        color: white
+    &.pink
+        border-color: $pink
+        background: $pink
+        color: white
+        &:hover
+            border-color: white
+            background: white
+            color: $pink
+    &.black
+        border-color: $black
+        background: $black
+        color: white
+        &:hover
+            background: white
+            color: $black

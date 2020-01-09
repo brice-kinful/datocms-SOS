@@ -1,0 +1,217 @@
+body
+    color: $black
+
+.uppercase
+    text-transform: uppercase
+
+.lowercase
+    text-transform: lowercase
+
+.center-text
+    text-align: center
+
+.text-right
+    text-align: right
+
+.text-left
+    text-align: left
+
+.flex
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-flex: 1
+    -ms-flex: 1 0 auto
+    flex: 1 0 auto
+    -webkit-box-orient: horizontal
+    -webkit-box-direction: normal
+
+    &.space-between
+        -webkit-box-pack: justify
+        -ms-flex-pack: justify
+        justify-content: space-between
+
+    &.align-center
+        -webkit-box-align: center
+        -ms-flex-align: center
+        align-items: center
+
+    &.align-end
+        -webkit-box-align: flex-end
+        -ms-flex-align: flex-end
+        align-items: flex-end
+
+    &.column
+        -webkit-box-orient: vertical
+        -webkit-box-direction: normal
+        -ms-flex-direction: column
+        flex-direction: column
+
+    &.justify-center
+        -webkit-box-pack: center
+        -ms-flex-pack: center
+        justify-content: center
+
+    &.justify-end
+        -webkit-box-pack: flex-end
+        -ms-flex-pack: flex-end
+        justify-content: flex-end
+
+    &.wrap
+        -ms-flex-wrap: wrap
+        flex-wrap: wrap
+
+    &.reverse
+        -webkit-box-orient: horizontal
+        -webkit-box-direction: reverse
+        -ms-flex-direction: row-reverse
+        flex-direction: row-reverse
+
+    .col
+        -webkit-box-flex: 1
+        -ms-flex: 1
+        flex: 1
+
+        &.ie
+            -webkit-box-flex: auto
+            -ms-flex: auto
+            flex: auto
+
+    img
+        align-self: center
+
+    &.grid .grid-item
+        padding: 15px
+
+@supports (display: -ms-grid) or (display: grid)
+    .flex.grid
+        display: -ms-grid
+        display: grid
+
+        &.two
+            -ms-grid-columns: 1fr 1fr
+            grid-template-columns: 1fr 1fr
+
+        &.three
+            -ms-grid-columns: 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr
+
+        &.four
+            -ms-grid-columns: 1fr 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr 1fr
+
+        &.six
+            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+
+        .grid-item
+            width: initial !important
+            padding: 0 !important
+
+.four-fifths
+    width: 80%
+
+.three-fourths
+    width: 75%
+
+.two-thirds
+    width: 66.6666%
+
+.three-fifths
+    width: 60%
+
+.one-half
+    width: 50%
+
+.two-fifths
+    width: 40%
+
+.one-third
+    width: 33.3333%
+
+.one-fourth
+    width: 25%
+
+.one-fifth
+    width: 20%
+
+.page
+    min-height: 100vh
+    opacity: 0
+    -webkit-transition: opacity 0.4s ease-in
+    -o-transition: opacity 0.4s ease-in
+    transition: opacity 0.4s ease-in
+    animation: pageLoading
+    animation-duration: 1s
+    animation-delay: 0.33s
+    animation-fill-mode: forwards
+
+@keyframes pageLoading
+    0%
+        opacity: 0
+
+    100%
+        opacity: 1
+
+section
+    padding-top: 140px
+    padding-bottom: 140px
+    position: relative
+    &.pad-med
+        padding-top: 70px
+        padding-bottom: 70px
+    &.no-top-pad
+        padding-top: 0
+    &.no-bottom-pad
+        padding-bottom: 0
+
+.wrapper
+    position: relative
+    width: 100%
+    max-width: 1680px
+    margin: 0 auto
+    padding-left: 40px
+    padding-right: 40px
+
+    &.full
+        max-width: 100%
+
+    &.xl
+        max-width: 1400px
+
+    &.lg
+        max-width: 1300px
+
+    &.md
+        max-width: 960px
+
+    &.sm
+        max-width: 720px
+
+    &.xs
+        max-width: 600px
+
+.overlay
+    position: relative
+
+    &:before
+        position: absolute
+        content: " "
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        display: block
+        z-index: 0
+        background-color: rgba(20, 77, 96, 0.6)
+
+.bg
+    background-size: cover !important
+    background-position: center !important
+    background-repeat: no-repeat !important
+
+.inner > *, ul > *, .wrapper.content > *
+    margin-bottom: 25px
+
+    &:last-child
+        margin-bottom: 0

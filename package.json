@@ -1,17 +1,25 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
+  "name": "sos",
+  "description": "Share Our Suzy Website 2020",
   "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
+  "author": "Brice Christian <brice@weareoutline.com>",
   "dependencies": {
+    "babel-preset-gatsby": "^0.2.26",
     "dotenv": "^8.1.0",
     "gatsby": "^2.15.30",
+    "gatsby-background-image": "^0.9.12",
     "gatsby-image": "^2.2.24",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sass": "^2.1.17",
+    "gatsby-plugin-sharp": "^2.3.12",
+    "gatsby-plugin-transition-link": "^1.17.7",
     "gatsby-source-datocms": "^2.1.18",
     "gatsby-source-filesystem": "^2.1.29",
     "gatsby-transformer-remark": "^2.6.27",
+    "gatsby-transformer-sharp": "^2.3.11",
+    "gsap": "^3.0.4",
+    "html-react-parser": "^0.10.0",
+    "intersection-observer": "^0.7.0",
     "node-sass": "^4.11.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -27,7 +35,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "rm -r ./.cache && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {

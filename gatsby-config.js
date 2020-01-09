@@ -1,8 +1,12 @@
-require('dotenv').config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
-    title: `Creative Portfolio`,
+    title: `Share on Suzy`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,8 +15,18 @@ module.exports = {
     {
       resolve: `gatsby-source-datocms`,
       options: {
-        apiToken: process.env.DATO_API_TOKEN,
-      },
+        apiToken: process.env.GATSBY_DATO_API_TOKEN,
+        previewMode: true
+      }
     },
-  ],
-}
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `static`, `images`)
+      }
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
+  ]
+};
