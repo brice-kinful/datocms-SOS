@@ -2,12 +2,10 @@ import React from "react";
 import Img from "gatsby-image";
 import parse from "html-react-parser";
 
-import "../../styles/blocks/home/intro.sass";
-
 const Intro = props => {
   const { content } = props;
 
-  console.log(content);
+  // console.log(content);
   return (
     <section className="intro no-top-pad">
       <div className={`wrapper lg flex`}>
@@ -15,14 +13,14 @@ const Intro = props => {
           return (
             <React.Fragment key={block.id}>
               {block.__typename === "DatoCmsImage" && (
-                <div className={`one-half image`}>
+                <div className={`two-fifths image`}>
                   <div className="inner">
                     <Img fluid={block.image.fluid} />
                   </div>
                 </div>
               )}
               {block.__typename === "DatoCmsIntroContent" && (
-                <div className={`one-half text`}>
+                <div className={`three-fifths text`}>
                   <div className="inner">
                     <h1 className={`big-caslon-font text-lg line-after`}>
                       <span className="white-bg">{block.headline}</span>

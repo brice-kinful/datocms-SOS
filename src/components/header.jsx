@@ -51,7 +51,11 @@ class Header extends Component {
                     <a
                       href={item.menuItemCustomLink}
                       target="_blank"
-                      className={item.isThisAButton ? "btn black" : ""}
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
                     >
                       {item.menuItemText}
                     </a>
@@ -60,7 +64,11 @@ class Header extends Component {
                   <li key={item.id}>
                     <Link
                       to={`/${item.menuItemPageLink.slug}`}
-                      className={item.isThisAButton ? "btn black" : ""}
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
                     >
                       {item.menuItemText}
                     </Link>
@@ -82,7 +90,11 @@ class Header extends Component {
                     <a
                       href={item.menuItemCustomLink}
                       target="_blank"
-                      className={item.isThisAButton ? "btn black" : ""}
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
                     >
                       {item.menuItemText}
                     </a>
@@ -91,7 +103,11 @@ class Header extends Component {
                   <li key={item.id}>
                     <Link
                       to={`/${item.menuItemPageLink}`}
-                      className={item.isThisAButton ? "btn black" : ""}
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
                     >
                       {item.menuItemText}
                     </Link>

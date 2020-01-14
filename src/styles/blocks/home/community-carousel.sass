@@ -1,0 +1,24 @@
+section.community-carousel
+    .quote
+        line-height: 3.45rem
+        padding: 50px 0
+    .said-by:before
+        content: "-"
+        padding-right: 5px
+    .slick-dots
+        position: static
+        padding-top: 50px
+        li
+            button
+                border-radius: 50%
+                border: 1px solid $dark-gray
+                background: white
+                width: 15px
+                height: 15px
+                @include transition(.3s)
+                &:before
+                    display: none
+
+            &.slick-active
+                button
+                    background: black

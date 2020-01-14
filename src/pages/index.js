@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
@@ -13,6 +12,8 @@ import PatientAssistance from "../components/home/patient-assistance";
 import PatientStoriesCarousel from "../components/home/patient-stories-carousel";
 import AnnualEventsAccordion from "../components/home/annual-events-accordion";
 
+import "../styles/home.sass";
+
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
 
@@ -22,9 +23,12 @@ const IndexPage = ({ data }) => {
       <div id="home" className={`page`}>
         <Hero content={datoCmsHome.hero} />
         <Intro content={datoCmsHome.intro} />
-        <WhatWeDo />
-        <CommunityCarousel />
-        <HowYouCanHelp />
+        <WhatWeDo content={datoCmsHome.whatWeDo} />
+        <CommunityCarousel
+          title={datoCmsHome.communityTitle}
+          content={datoCmsHome.communityCarousel}
+        />
+        <HowYouCanHelp content={datoCmsHome.howYouCanHelp} />
         <PatientAssistance />
         <PatientStoriesCarousel />
         <AnnualEventsAccordion />
@@ -70,11 +74,13 @@ export const query = graphql`
       }
       whatWeDo {
         ... on DatoCmsWhatWeDoContent {
+          id
           title
           headline
           copy
         }
         ... on DatoCmsImageIconGroup {
+          id
           imagesIcons {
             originalId
             fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
@@ -91,16 +97,23 @@ export const query = graphql`
       }
       howYouCanHelp {
         ... on DatoCmsHowYouCanHelpTitle {
+          id
           title
         }
         ... on DatoCmsLeftColumn {
+          id
           headline
           subheadline
           textBlock
           ctaButtonText
+          customUrl
+          ctaButtonUrlPageLink {
+            slug
+          }
           ctaButtonUrl
         }
         ... on DatoCmsRightColumnItem {
+          id
           headline
           subheadline
           ctaText
@@ -108,6 +121,7 @@ export const query = graphql`
         }
       }
       patientAssistance {
+        id
         headline
         subheadline
         copy

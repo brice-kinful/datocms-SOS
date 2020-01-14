@@ -1,8 +1,6 @@
 import React from "react";
 import BackgroundImage from "gatsby-background-image";
 
-import "../../styles/blocks/home/hero.sass";
-
 const Hero = props => {
   const { content } = props;
 
@@ -16,14 +14,14 @@ const Hero = props => {
             {block.__typename === "DatoCmsHeadline" && (
               <div className={`headline wrapper`}>
                 <div className="two-thirds">
-                  <h2 className={`hoefler-font text-3xl`}>{block.text}</h2>
+                  <h2 className={`big-caslon-font text-3xl`}>{block.text}</h2>
                 </div>
               </div>
             )}
             {block.__typename === "DatoCmsBackgroundImage" && (
               <BackgroundImage
                 fluid={block.image.fluid}
-                backgroundColor={`#040e18`}
+                backgroundColor={`#FAE8EF`}
               ></BackgroundImage>
             )}
           </React.Fragment>
