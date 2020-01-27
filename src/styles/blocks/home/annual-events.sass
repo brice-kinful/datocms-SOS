@@ -1,0 +1,19 @@
+section.annual-events
+    h3
+        span
+            padding-left: 15px
+    .image
+        padding-right: 125px
+        .event-image-enter
+            opacity: 0
+            max-height: 2000px
+            &.event-image-enter-active
+                opacity: 1
+                transition: opacity 400ms ease-in
+        .event-image-leave
+            opacity: 1
+            max-height: 2000px
+            &.event-image-leave-active
+                opacity: 0
+                max-height: 0
+                transition: opacity 0 ease-in

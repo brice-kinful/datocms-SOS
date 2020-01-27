@@ -4,8 +4,6 @@ import BackgroundImage from "gatsby-background-image";
 const Hero = props => {
   const { content } = props;
 
-  // console.log(content);
-
   return (
     <section className={`hero flex column`}>
       {content.map(block => {

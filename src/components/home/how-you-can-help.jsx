@@ -5,21 +5,16 @@ import { Link } from "gatsby";
 const HowYouCanHelp = props => {
   const { content } = props;
 
-  console.log(content);
-
   return (
     <section className={`help gray-bg pad-med`}>
       <div className={`flex wrapper justify-center`}>
-        {content.map(block => {
-          return (
-            <h3
-              className={`al-fresco-font text-xl lowercase title`}
-              key={block.id}
-            >
-              {block.__typename === "DatoCmsHowYouCanHelpTitle" && block.title}
-            </h3>
-          );
-        })}
+        <h3
+          className={`al-fresco-font text-xl lowercase title`}
+          style={{ paddingRight: 0 }}
+        >
+          {content[0].__typename === "DatoCmsHowYouCanHelpTitle" &&
+            content[0].title}
+        </h3>
       </div>
       <div className={`flex wrapper`}>
         <div className={`left one-half`}>
@@ -39,7 +34,7 @@ const HowYouCanHelp = props => {
                       {block.customUrl ? (
                         <a
                           href={block.ctaButtonUrl}
-                          className={`btn pink`}
+                          className={`btn med-pink`}
                           target="_blank"
                         >
                           {block.ctaButtonText}
@@ -47,7 +42,7 @@ const HowYouCanHelp = props => {
                       ) : (
                         <Link
                           to={`/${block.ctaButtonUrlPageLink.slug}`}
-                          className={`btn pink`}
+                          className={`btn med-pink`}
                         >
                           {block.ctaButtonText}
                         </Link>

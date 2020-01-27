@@ -1,0 +1,21 @@
+.slick-slider
+    overflow: hidden
+
+.slick-dots
+    position: static
+    padding-top: 50px
+    li
+        button
+            border-radius: 50%
+            border: 1px solid $dark-gray
+            background: white
+            width: 15px
+            height: 15px
+            -webkit-transition: .3s
+            -o-transition: .3s
+            transition: .3s
+            &:before
+                display: none
+    .slick-active
+        button
+            background: black

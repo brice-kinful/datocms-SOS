@@ -1,0 +1,73 @@
+.page > .accordion-block
+    padding: 0
+
+.accordion-blocked ~ .accordion-block
+    padding-top: 50px
+
+.accordion-block
+    &:last-of-type
+        padding-bottom: 50px
+
+    .accordion
+        padding: 15px 0
+        border-bottom: 2px solid
+
+.accordion.ui
+    .content
+        opacity: 0
+        visibility: hidden
+        transition: opacity .6s, padding .6s
+        padding: 0 50px
+        max-height: 0
+
+        &.active
+            opacity: 1
+            visibility: visible
+            height: auto
+            padding: 50px
+            max-height: 2400px
+
+.title
+    cursor: pointer
+    position: relative
+    padding-right: 40px
+
+.plus-minus-toggle
+    cursor: pointer
+    height: 21px
+    position: absolute
+    right: 0
+    top: 50%
+    width: 35px
+    &:before
+        background: #000
+        content: ''
+        height: 1px
+        left: 0
+        position: absolute
+        top: 0
+        width: 35px
+        transition: transform 500ms ease
+    &:after
+        background: #000
+        content: ''
+        height: 1px
+        left: -1px
+        position: absolute
+        top: 0
+        width: 35px
+        transition: transform 500ms ease
+        transform-origin: center
+    &.collapsed
+        &:after
+            transform: rotate(90deg)
+
+        &:before
+            transform: rotate(180deg)
+            position: absolute
+            right: 0
+            top: 0
+            width: 35px
+            height: 1px
+            display: block
+            cursor: pointer

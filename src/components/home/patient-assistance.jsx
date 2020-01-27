@@ -1,7 +1,29 @@
 import React from "react";
+import { Link } from "gatsby";
+import parse from "html-react-parser";
 
 const PatientAssistance = props => {
-  return <section>Patient Assistance</section>;
+  const { content } = props;
+  return (
+    <section className="patient-assistance">
+      <div className="wrapper sm content center-text">
+        <h4 className="nobel-font text- uppercase">{content[0]?.headline}</h4>
+        <h3 className="big-caslon-font text-2xl">{content[0]?.subheadline}</h3>
+        {parse(content[0]?.copy)}
+        {content[0].ctaButtonUrl &&
+        content[0].ctaButtonUrl.startsWith("/") &&
+        content[0].ctaButtonUrl != null ? (
+          <Link to={content[0].ctaButtonUrl} className="btn med-pink">
+            {content[0].ctaButtonText}
+          </Link>
+        ) : (
+          <a href={content[0].ctaButtonUrl} className="btn med-pink">
+            {content[0].ctaButtonText}
+          </a>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default PatientAssistance;

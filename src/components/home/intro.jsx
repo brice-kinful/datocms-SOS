@@ -5,7 +5,6 @@ import parse from "html-react-parser";
 const Intro = props => {
   const { content } = props;
 
-  // console.log(content);
   return (
     <section className="intro no-top-pad">
       <div className={`wrapper lg flex`}>

@@ -11,6 +11,7 @@ import HowYouCanHelp from "../components/home/how-you-can-help";
 import PatientAssistance from "../components/home/patient-assistance";
 import PatientStoriesCarousel from "../components/home/patient-stories-carousel";
 import AnnualEventsAccordion from "../components/home/annual-events-accordion";
+import Instagram from "../components/instagram";
 
 import "../styles/home.sass";
 
@@ -29,9 +30,16 @@ const IndexPage = ({ data }) => {
           content={datoCmsHome.communityCarousel}
         />
         <HowYouCanHelp content={datoCmsHome.howYouCanHelp} />
-        <PatientAssistance />
-        <PatientStoriesCarousel />
-        <AnnualEventsAccordion />
+        <PatientAssistance content={datoCmsHome.patientAssistance} />
+        <PatientStoriesCarousel
+          title={datoCmsHome.patientStoriesTitle}
+          content={datoCmsHome.patientStoriesCarousel}
+        />
+        <AnnualEventsAccordion
+          title={datoCmsHome.annualEventsTitle}
+          content={datoCmsHome.annualEventsAccordion}
+        />
+        <Instagram />
       </div>
     </Layout>
   );
@@ -133,6 +141,12 @@ export const query = graphql`
         id
         headline
         copy
+        image {
+          url
+          fluid(maxWidth: 830, imgixParams: { fm: "jpg", auto: "compress" }) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
       }
       annualEventsTitle
       annualEventsAccordion {
