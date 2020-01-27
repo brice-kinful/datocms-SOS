@@ -1,0 +1,31 @@
+.flex.grid .grid-item
+    padding: 25px
+
+@supports (display: -ms-grid) or (display: grid)
+    .flex.grid
+        display: -ms-grid
+        display: grid
+
+        &.two
+            -ms-grid-columns: 1fr 1fr
+            grid-template-columns: 1fr 1fr
+
+        &.three
+            -ms-grid-columns: 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr
+
+        &.four
+            -ms-grid-columns: 1fr 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr
+
+        &.five
+            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+
+        &.six
+            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+
+        .grid-item
+            width: initial !important
+            padding: 0 !important

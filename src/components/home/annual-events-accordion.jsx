@@ -36,8 +36,6 @@ class AnnualEventsAccordion extends Component {
     const { activeIndex, images } = this.state;
     const { title, content } = this.props;
 
-    console.log(images);
-
     return (
       <section className="annual-events">
         <div className="wrapper xl flex">

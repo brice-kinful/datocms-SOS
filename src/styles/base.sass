@@ -65,34 +65,6 @@ body
     img
         align-self: center
 
-    &.grid .grid-item
-        padding: 15px
-
-@supports (display: -ms-grid) or (display: grid)
-    .flex.grid
-        display: -ms-grid
-        display: grid
-
-        &.two
-            -ms-grid-columns: 1fr 1fr
-            grid-template-columns: 1fr 1fr
-
-        &.three
-            -ms-grid-columns: 1fr 1fr 1fr
-            grid-template-columns: 1fr 1fr 1fr
-
-        &.four
-            -ms-grid-columns: 1fr 1fr 1fr 1fr
-            grid-template-columns: 1fr 1fr 1fr 1fr
-
-        &.six
-            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
-
-        .grid-item
-            width: initial !important
-            padding: 0 !important
-
 .four-fifths
     width: 80%
 

@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
           title={datoCmsHome.annualEventsTitle}
           content={datoCmsHome.annualEventsAccordion}
         />
-        <Instagram />
+        <Instagram social={data.allDatoCmsSocialProfile} />
       </div>
     </Layout>
   );
@@ -156,6 +156,14 @@ export const query = graphql`
           fluid(maxWidth: 750, imgixParams: { fm: "jpg", auto: "compress" }) {
             ...GatsbyDatoCmsFluid
           }
+        }
+      }
+    }
+    allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
+      edges {
+        node {
+          profileType
+          slug
         }
       }
     }

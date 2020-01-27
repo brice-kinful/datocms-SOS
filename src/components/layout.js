@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
             edges {
               node {
                 profileType
-                url
+                slug
               }
             }
           }
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
             rightMenu={data.datoCmsMainMenu.rightMenuItems}
           />
           {children}
-          <Footer social={data.allDatoCmsSocialProfile} />
+          <Footer />
         </>
       )}
     />
