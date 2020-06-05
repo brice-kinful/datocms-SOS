@@ -5,22 +5,22 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMenuOpen: false
+      isMenuOpen: false,
     };
   }
 
   componentDidMount() {
     document.body.classList.remove("menu-open");
-    this.setState(state => ({
-      isMenuOpen: false
+    this.setState((state) => ({
+      isMenuOpen: false,
     }));
   }
 
-  openMenu = e => {
+  openMenu = (e) => {
     e.preventDefault();
     // console.log('clicked')
-    this.setState(state => ({
-      isMenuOpen: !state.isMenuOpen
+    this.setState((state) => ({
+      isMenuOpen: !state.isMenuOpen,
     }));
     if (this.state.isMenuOpen) {
       document.body.classList.remove("menu-open");
@@ -29,7 +29,7 @@ class Header extends Component {
     }
   };
 
-  closeMenu = e => {
+  closeMenu = (e) => {
     if (this.state.isMenuOpen) {
       document.body.classList.remove("menu-open");
     }
@@ -45,7 +45,7 @@ class Header extends Component {
         <div id="header">
           <div className={`wrapper flex space-between full`}>
             <ul className={`left two-fifths flex wrap`}>
-              {leftMenu.map(item => {
+              {leftMenu.map((item) => {
                 return item.customUrl ? (
                   <li key={item.id}>
                     <a
@@ -84,7 +84,7 @@ class Header extends Component {
               </div>
             </div>
             <ul className={`right two-fifths flex justify-end wrap`}>
-              {rightMenu.map(item => {
+              {rightMenu.map((item) => {
                 return item.customUrl ? (
                   <li key={item.id}>
                     <a
@@ -102,7 +102,7 @@ class Header extends Component {
                 ) : (
                   <li key={item.id}>
                     <Link
-                      to={`/${item.menuItemPageLink}`}
+                      to={`/${item.menuItemPageLink.slug}`}
                       className={
                         item.isThisAButton
                           ? `btn black`

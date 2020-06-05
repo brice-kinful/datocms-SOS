@@ -11,9 +11,8 @@ import HowYouCanHelp from "../components/home/how-you-can-help";
 import PatientAssistance from "../components/home/patient-assistance";
 import PatientStoriesCarousel from "../components/home/patient-stories-carousel";
 import AnnualEventsAccordion from "../components/home/annual-events-accordion";
-import Instagram from "../components/instagram";
 
-import "../styles/home.sass";
+// import "../styles/home.sass";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -39,7 +38,6 @@ const IndexPage = ({ data }) => {
           title={datoCmsHome.annualEventsTitle}
           content={datoCmsHome.annualEventsAccordion}
         />
-        <Instagram social={data.allDatoCmsSocialProfile} />
       </div>
     </Layout>
   );
@@ -158,14 +156,6 @@ export const query = graphql`
           fluid(maxWidth: 750, imgixParams: { fm: "jpg", auto: "compress" }) {
             ...GatsbyDatoCmsFluid
           }
-        }
-      }
-    }
-    allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
-          profileType
-          slug
         }
       }
     }

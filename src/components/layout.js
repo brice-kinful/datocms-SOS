@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
@@ -26,7 +26,15 @@ const Layout = ({ children }) => {
                 id
                 menuItemText
                 menuItemPageLink {
-                  slug
+                  ... on DatoCmsAboutPage {
+                    slug
+                  }
+                  ... on DatoCmsAssistancePage {
+                    slug
+                  }
+                  ... on DatoCmsFaqsPage {
+                    slug
+                  }
                 }
                 customUrl
                 menuItemCustomLink
@@ -38,7 +46,15 @@ const Layout = ({ children }) => {
                 id
                 menuItemText
                 menuItemPageLink {
-                  slug
+                  ... on DatoCmsAboutPage {
+                    slug
+                  }
+                  ... on DatoCmsAssistancePage {
+                    slug
+                  }
+                  ... on DatoCmsFaqsPage {
+                    slug
+                  }
                 }
                 customUrl
                 menuItemCustomLink
@@ -61,7 +77,7 @@ const Layout = ({ children }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}

@@ -1,12 +1,14 @@
 import React from "react";
 import BackgroundImage from "gatsby-background-image";
 
-const Hero = props => {
+// import "../../styles/blocks/hero.sass";
+
+const Hero = (props) => {
   const { content } = props;
 
   return (
     <section className={`hero flex column`}>
-      {content.map(block => {
+      {content.map((block) => {
         return (
           <React.Fragment key={block.id}>
             {block.__typename === "DatoCmsHeadline" && (

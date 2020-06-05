@@ -10,7 +10,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // data: `@import "${__dirname}/src/styles/index";`,
+      }
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-datocms`,
