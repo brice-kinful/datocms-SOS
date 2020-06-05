@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Brice Christian <brice@weareoutline.com>",
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^1.0.43",
     "axios": "^0.19.2",
     "babel-preset-gatsby": "^0.2.26",
     "dotenv": "^8.1.0",

@@ -91,6 +91,8 @@ export const query = graphql`
           id
           imagesIcons {
             originalId
+            url
+            title
             fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsFluid
             }

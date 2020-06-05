@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const Footer = props => {
+const Footer = (props) => {
   console.log(props);
   return (
     <div id="footer">
@@ -18,14 +18,14 @@ const Footer = props => {
           <p className="al-fresco-font headline">follow</p>
           <a
             href="https://facebook.com"
-            class="nobel-font uppercase"
+            className="nobel-font uppercase"
             target="_blank"
           >
             Facebook
           </a>
           <a
             href="https://instagram.com"
-            class="nobel-font uppercase"
+            className="nobel-font uppercase"
             target="_blank"
           >
             Instagram

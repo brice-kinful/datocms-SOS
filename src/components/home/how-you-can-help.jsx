@@ -2,12 +2,12 @@ import React from "react";
 import parse from "html-react-parser";
 import { Link } from "gatsby";
 
-const HowYouCanHelp = props => {
+const HowYouCanHelp = (props) => {
   const { content } = props;
 
   return (
     <section className={`help gray-bg pad-med`}>
-      <div className={`flex wrapper justify-center`}>
+      <div className={`flex wrapper lg justify-center`}>
         <h3
           className={`al-fresco-font text-xl lowercase title`}
           style={{ paddingRight: 0 }}
@@ -16,10 +16,10 @@ const HowYouCanHelp = props => {
             content[0].title}
         </h3>
       </div>
-      <div className={`flex wrapper`}>
+      <div className={`flex wrapper lg`}>
         <div className={`left one-half`}>
           <div className="inner">
-            {content.map(block => {
+            {content.map((block) => {
               return (
                 <React.Fragment key={block.id}>
                   {block.__typename === "DatoCmsLeftColumn" && (
@@ -55,7 +55,7 @@ const HowYouCanHelp = props => {
           </div>
         </div>
         <div className={`right one-half`}>
-          {content.map(block => {
+          {content.map((block) => {
             return (
               <React.Fragment key={block.id}>
                 {block.__typename === "DatoCmsRightColumnItem" && (

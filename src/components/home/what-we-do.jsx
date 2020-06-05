@@ -2,7 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import Img from "gatsby-image";
 
-const WhatWeDo = props => {
+const WhatWeDo = (props) => {
   const { content } = props;
 
   // console.log(content);
@@ -10,9 +10,9 @@ const WhatWeDo = props => {
   return (
     <section className={`what-we-do pink-bg`}>
       <div className={`wrapper lg flex align-center`}>
-        {content.map(block => {
+        {content.map((block, index) => {
           return (
-            <React.Fragment key={block.id}>
+            <React.Fragment key={index}>
               {block.__typename === "DatoCmsWhatWeDoContent" && (
                 <div className={`one-half text`}>
                   <div className="inner">
@@ -29,10 +29,27 @@ const WhatWeDo = props => {
               {block.__typename === "DatoCmsImageIconGroup" && (
                 <div className={`one-half images`}>
                   <div className="inner flex grid three wrap">
-                    {block.imagesIcons.map(item => {
+                    {block.imagesIcons.map((item, index) => {
                       return (
-                        <div className="grid-item one-third">
-                          <Img fluid={item.fluid} />
+                        <div
+                          className="grid-item one-third"
+                          key={index}
+                          style={{ margin: 0 }}
+                        >
+                          <img
+                            src={item.url}
+                            style={{
+                              width: "120px",
+                              height: "100px",
+                              margin: "0 auto",
+                            }}
+                          />
+                          <p
+                            className="nobel-font uppercase text-xs center-text"
+                            style={{ paddingTop: "20px" }}
+                          >
+                            {item?.title}
+                          </p>
                         </div>
                       );
                     })}

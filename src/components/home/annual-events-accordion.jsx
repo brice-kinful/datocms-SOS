@@ -11,14 +11,14 @@ class AnnualEventsAccordion extends Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      images: []
+      images: [],
     };
   }
 
   componentDidMount() {
-    this.props.content.map(item => {
-      this.setState(prevState => ({
-        images: [...prevState.images, item.image]
+    this.props.content.map((item) => {
+      this.setState((prevState) => ({
+        images: [...prevState.images, item.image],
       }));
     });
   }
@@ -28,7 +28,7 @@ class AnnualEventsAccordion extends Component {
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? 0 : index;
     this.setState({
-      activeIndex: newIndex
+      activeIndex: newIndex,
     });
   };
 
@@ -62,7 +62,7 @@ class AnnualEventsAccordion extends Component {
             <Accordion>
               {content.map((item, index) => {
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <Accordion.Title
                       active={activeIndex === index}
                       index={index}
@@ -84,7 +84,7 @@ class AnnualEventsAccordion extends Component {
                     >
                       {parse(item.copy)}
                     </Accordion.Content>
-                  </>
+                  </React.Fragment>
                 );
               })}
             </Accordion>
