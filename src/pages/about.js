@@ -7,6 +7,9 @@ import Layout from "../components/layout";
 
 import Hero from "../components/about/hero";
 import Goal from "../components/about/goal";
+import Suzy from "../components/about/suzy";
+import Cta from "../components/about/cta";
+import Board from "../components/about/board";
 
 const AboutPage = ({ data }) => {
   const { page } = data.datoCmsAboutPage;
@@ -27,6 +30,24 @@ const AboutPage = ({ data }) => {
               return (
                 <React.Fragment key={item.id}>
                   <Goal content={item[index]} />
+                </React.Fragment>
+              );
+            case "DatoCmsAboutSuzy":
+              return (
+                <React.Fragment key={item.id}>
+                  <Suzy content={item[index]} />
+                </React.Fragment>
+              );
+            case "DatoCmsAboutCta":
+              return (
+                <React.Fragment key={item.id}>
+                  <Cta content={item[index]} />
+                </React.Fragment>
+              );
+            case "DatoCmsAboutBoard":
+              return (
+                <React.Fragment key={item.id}>
+                  <Board content={item[index]} />
                 </React.Fragment>
               );
             default:
@@ -61,6 +82,40 @@ export const query = graphql`
           id
           headline
           bodyCopy
+        }
+        ... on DatoCmsAboutSuzy {
+          id
+          title
+          image {
+            fluid(imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          bodyCopy
+        }
+        ... on DatoCmsAboutCta {
+          id
+          headline
+          bodyCopy
+          buttonText
+          buttonUrl {
+            ... on DatoCmsAssistancePage {
+              slug
+            }
+            ... on DatoCmsAboutPage {
+              slug
+            }
+            ... on DatoCmsPage {
+              slug
+            }
+          }
+          externalButtonUrlToggle
+          externalButtonUrl
+        }
+        ... on DatoCmsAboutBoard {
+          id
+          title
+          names
         }
       }
     }

@@ -37,7 +37,7 @@ class AnnualEventsAccordion extends Component {
     const { title, content } = this.props;
 
     return (
-      <section className="annual-events">
+      <section className="annual-events pad-bottom-med">
         <div className="wrapper xl flex">
           <div className="one-half image">
             {images.map((image, index) => {

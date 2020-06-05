@@ -4,7 +4,7 @@ import Instagram from "./instagram";
 const Footer = (props) => {
   // console.log(props);
   return (
-    <section id="footer" className="pad-med no-top-pad">
+    <section id="footer" className="pad-med">
       <Instagram social={props.allDatoCmsSocialProfile} />
       <div className={`wrapper flex space-between`}>
         <div className="one-half">
