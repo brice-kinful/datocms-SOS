@@ -23,13 +23,7 @@ const Application = (props) => {
         )}
         {application.externalButtonUrlToggle &&
         application.externalButtonUrl ? (
-          <div
-            style={{
-              maxWidth: "450px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
+          <div>
             <a
               href={application.externalButtonUrl}
               key={application.id}
@@ -41,13 +35,7 @@ const Application = (props) => {
             </a>
           </div>
         ) : (
-          <div
-            style={{
-              maxWidth: "450px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
+          <div>
             <Link
               key={application.id}
               to={`/${
@@ -61,7 +49,17 @@ const Application = (props) => {
             </Link>
           </div>
         )}
-        {application.asterikText && <p>{application.asterikText}</p>}
+        {application.asterikText && (
+          <p
+            style={{
+              maxWidth: "450px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            {application.asterikText}
+          </p>
+        )}
       </div>
     </section>
   );
