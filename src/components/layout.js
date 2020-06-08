@@ -1,6 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
+import { TransitionState } from "gatsby-plugin-transition-link";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -77,20 +79,22 @@ const Layout = ({ children }) => {
           }
         }
       `}
-      render={(data) => (
-        <>
-          <HelmetDatoCms
-            favicon={data.datoCmsSite.faviconMetaTags}
-            seo={data.datoCmsHome.seoMetaTags}
-          />
-          <Header
-            leftMenu={data.datoCmsMainMenu.leftMenuItems}
-            rightMenu={data.datoCmsMainMenu.rightMenuItems}
-          />
-          {children}
-          <Footer />
-        </>
-      )}
+      render={(data) => {
+        return (
+          <>
+            <HelmetDatoCms
+              favicon={data.datoCmsSite.faviconMetaTags}
+              seo={data.datoCmsHome.seoMetaTags}
+            />
+            <Header
+              leftMenu={data.datoCmsMainMenu.leftMenuItems}
+              rightMenu={data.datoCmsMainMenu.rightMenuItems}
+            />
+            {children}
+            <Footer />
+          </>
+        );
+      }}
     />
   );
 };

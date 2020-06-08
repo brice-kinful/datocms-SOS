@@ -31,6 +31,7 @@ module.exports = {
         path: path.join(__dirname, `static`, `images`)
       }
     },
+    `gatsby-plugin-transition-link`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`
   ]

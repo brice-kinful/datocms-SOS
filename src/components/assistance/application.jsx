@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+import Link from "gatsby-plugin-transition-link";
 import parse from "html-react-parser";
 
 const Application = (props) => {

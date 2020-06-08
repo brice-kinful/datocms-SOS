@@ -8,7 +8,7 @@ const Board = (props) => {
     <section className="board gray-bg">
       <div className="wrapper lg content center-text">
         <h2 className="nobel-font uppercase">{board.title}</h2>
-        <ul class="flex wrap">
+        <ul className="flex wrap">
           {boardArr.map((person, index) => {
             return (
               <li key={index} className="one-third">

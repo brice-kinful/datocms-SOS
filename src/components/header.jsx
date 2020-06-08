@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+// import Link from "gatsby-plugin-transition-link";/
+import AniLink from "./transitions/AniLink";
 
 class Header extends Component {
   constructor(props) {
@@ -44,77 +46,88 @@ class Header extends Component {
       <>
         <div id="header">
           <div className={`wrapper flex space-between full`}>
-            <ul className={`left two-fifths flex wrap`}>
-              {leftMenu.map((item) => {
-                return item.customUrl ? (
-                  <li key={item.id}>
-                    <a
-                      href={item.menuItemCustomLink}
-                      target="_blank"
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
-                    >
-                      {item.menuItemText}
-                    </a>
-                  </li>
-                ) : (
-                  <li key={item.id}>
-                    <Link
-                      to={`/${item.menuItemPageLink.slug}`}
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
-                    >
-                      {item.menuItemText}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="left two-fifths">
+              <button id="menu_toggle" className="hide_1060">
+                <span></span>
+              </button>
+              <ul className={`flex wrap show_1060`}>
+                {leftMenu.map((item) => {
+                  return item.customUrl ? (
+                    <li key={item.id}>
+                      <a
+                        href={item.menuItemCustomLink}
+                        target="_blank"
+                        className={
+                          item.isThisAButton
+                            ? `btn black`
+                            : `nobel-font text-md uppercase`
+                        }
+                      >
+                        {item.menuItemText}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={item.id}>
+                      <AniLink
+                        preventScrollJump
+                        fade
+                        to={`/${item.menuItemPageLink.slug}`}
+                        className={
+                          item.isThisAButton
+                            ? `btn black`
+                            : `nobel-font text-md uppercase`
+                        }
+                      >
+                        {item.menuItemText}
+                      </AniLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
             <div className="one-fifth">
               <div className="logo-container">
-                <Link to="/">
+                <AniLink preventScrollJump fade to="/">
                   <img src="/images/SOS_Logo.svg" alt="" />
-                </Link>
+                </AniLink>
               </div>
             </div>
-            <ul className={`right two-fifths flex justify-end wrap`}>
-              {rightMenu.map((item) => {
-                return item.customUrl ? (
-                  <li key={item.id}>
-                    <a
-                      href={item.menuItemCustomLink}
-                      target="_blank"
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
-                    >
-                      {item.menuItemText}
-                    </a>
-                  </li>
-                ) : (
-                  <li key={item.id}>
-                    <Link
-                      to={`/${item.menuItemPageLink.slug}`}
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
-                    >
-                      {item.menuItemText}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="right two-fifths">
+              <ul className={`flex justify-end wrap show_1060`}>
+                {rightMenu.map((item) => {
+                  return item.customUrl ? (
+                    <li key={item.id} style={{ marginRight: 0 }}>
+                      <a
+                        href={item.menuItemCustomLink}
+                        target="_blank"
+                        className={
+                          item.isThisAButton
+                            ? `btn black`
+                            : `nobel-font text-md uppercase`
+                        }
+                      >
+                        {item.menuItemText}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={item.id}>
+                      <AniLink
+                        preventScrollJump
+                        fade
+                        to={`/${item.menuItemPageLink.slug}`}
+                        className={
+                          item.isThisAButton
+                            ? `btn black`
+                            : `nobel-font text-md uppercase`
+                        }
+                      >
+                        {item.menuItemText}
+                      </AniLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </>
