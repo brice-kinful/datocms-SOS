@@ -1,14 +1,22 @@
 import React from "react";
-import parse from "html-react-parser";
-
-// import "../../styles/blocks/hero.sass";
 
 const Board = (props) => {
   const board = props.content;
+  const boardArr = board.names.split(/\r?\n/);
+  // console.log(names);
   return (
     <section className="board gray-bg">
-      <div className="wrapper content center-text">
+      <div className="wrapper lg content center-text">
         <h2 className="nobel-font uppercase">{board.title}</h2>
+        <ul class="flex wrap">
+          {boardArr.map((person, index) => {
+            return (
+              <li key={index} className="one-third">
+                <span>{person.replace("* ", "")}</span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
