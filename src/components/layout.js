@@ -90,7 +90,19 @@ const Layout = ({ children }) => {
               leftMenu={data.datoCmsMainMenu.leftMenuItems}
               rightMenu={data.datoCmsMainMenu.rightMenuItems}
             />
-            {children}
+
+            <TransitionState>
+              {({ mount, transitionStatus }) => {
+                console.log(transitionStatus);
+                mount &&
+                  setTimeout(() => {
+                    window.scrollTo(0, 1);
+                  }, 150);
+                return <>{children}</>;
+              }}
+            </TransitionState>
+            {/* {children} */}
+
             <Footer />
           </>
         );

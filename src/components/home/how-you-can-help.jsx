@@ -1,6 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+import AniLink from "../transitions/AniLink";
 
 const HowYouCanHelp = (props) => {
   const { content } = props;
@@ -40,12 +41,14 @@ const HowYouCanHelp = (props) => {
                           {block.ctaButtonText}
                         </a>
                       ) : (
-                        <Link
+                        <AniLink
+                          preventScrollJump
+                          fade
                           to={`/${block.ctaButtonUrlPageLink.slug}`}
                           className={`btn med-pink`}
                         >
                           {block.ctaButtonText}
-                        </Link>
+                        </AniLink>
                       )}
                     </>
                   )}

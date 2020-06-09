@@ -18,7 +18,7 @@ const fade = ({ exit: { length }, node, direction }) => {
       : {};
 
   return new TimelineMax()
-    .set(node, {})
+    .set(node, holdPosition)
     .fromTo(node, duration, { opacity: !opacity }, { opacity: opacity });
 };
 

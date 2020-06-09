@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Instagram from "./instagram";
 
 const Footer = (props) => {
