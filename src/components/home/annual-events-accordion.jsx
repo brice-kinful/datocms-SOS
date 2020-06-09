@@ -82,7 +82,7 @@ class AnnualEventsAccordion extends Component {
                       index={index}
                       className="inner"
                     >
-                      <div className="text-base">{parse(item.copy)}</div>
+                      <div className="text-base inner">{parse(item.copy)}</div>
                     </Accordion.Content>
                   </React.Fragment>
                 );

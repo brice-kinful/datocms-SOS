@@ -31,7 +31,9 @@ const HowYouCanHelp = (props) => {
                       <p className={`big-caslon-font text-lg`}>
                         {block.subheadline}
                       </p>
-                      <div className="text-base">{parse(block.textBlock)}</div>
+                      <div className="text-base inner">
+                        {parse(block.textBlock)}
+                      </div>
                       {block.customUrl ? (
                         <a
                           href={block.ctaButtonUrl}

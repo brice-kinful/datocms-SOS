@@ -8,7 +8,9 @@ const Hero = (props) => {
       {hero.headline && (
         <div className="headline wrapper flex justify-center">
           <div className="two-thirds">
-            <h1 className={`big-caslon-font text-3xl`}>{hero.headline}</h1>
+            <h1 className={`big-caslon-font text-3xl center-text`}>
+              {hero.headline}
+            </h1>
           </div>
         </div>
       )}

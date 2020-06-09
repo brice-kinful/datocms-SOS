@@ -22,31 +22,31 @@ const AboutPage = ({ data }) => {
           switch (__typename) {
             case "DatoCmsAboutHero":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Hero content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAboutGoal":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Goal content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAboutSuzy":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Suzy content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAboutCta":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Cta content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAboutBoard":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Board content={item[index]} />
                 </React.Fragment>
               );

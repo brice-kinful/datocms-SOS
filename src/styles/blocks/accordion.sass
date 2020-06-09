@@ -16,15 +16,17 @@
     .content
         opacity: 0
         visibility: hidden
-        transition: opacity .6s, padding .6s
+        transform: translateY(-50px)
+        transition: opacity .6s, transform .75s
         padding: 0 50px 0 0
         max-height: 0
 
         &.active
+            transform: translateY(0)
             opacity: 1
             visibility: visible
             height: auto
-            padding: 50px 50px 50px 0
+            padding: 0 50px 50px 0
             max-height: 2400px
 
     .title

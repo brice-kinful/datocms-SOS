@@ -11,7 +11,7 @@ const QuestionAnswer = (props) => {
         <p className="question big-caslon-font text-xl center-text">
           {item.question}
         </p>
-        <div className="answer inner">{parse(item.answer)}</div>
+        <div className="answer inner text-base">{parse(item.answer)}</div>
       </div>
       <div className="border"></div>
     </section>

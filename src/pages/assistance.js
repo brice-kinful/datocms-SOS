@@ -19,19 +19,19 @@ const AssistancePage = ({ data }) => {
           switch (__typename) {
             case "DatoCmsAssistanceHero":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Hero content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAssistanceHelp":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Help content={item[index]} />
                 </React.Fragment>
               );
             case "DatoCmsAssistanceApplication":
               return (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={index}>
                   <Application content={item[index]} />
                 </React.Fragment>
               );

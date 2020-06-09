@@ -16,7 +16,7 @@ const Suzy = (props) => {
               <span className="gray-bg">{suzy.title}</span>
             </h2>
           </div>
-          {parse(suzy.bodyCopy)}
+          <div className="text-base inner">{parse(suzy.bodyCopy)}</div>
         </div>
       </div>
     </section>

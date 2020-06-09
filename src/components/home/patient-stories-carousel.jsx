@@ -88,7 +88,7 @@ class PatientStoriesCarousel extends Component {
                         <p className="big-caslon-font text-lg">
                           {item.headline}
                         </p>
-                        <div className="text-base">{parse(item.copy)}</div>
+                        <div className="text-base inner">{parse(item.copy)}</div>
                       </div>
                       {/* <Img fluid={item.image.fluid} /> */}
                     </div>

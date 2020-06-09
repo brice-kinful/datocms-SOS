@@ -21,7 +21,7 @@ const WhatWeDo = (props) => {
                     <p className={`big-caslon-font text-lg`}>
                       {block.headline}
                     </p>
-                    <div className="text-base">{parse(block.copy)}</div>
+                    <div className="text-base inner">{parse(block.copy)}</div>
                   </div>
                 </div>
               )}

@@ -20,7 +20,7 @@ const FaqsPage = ({ data }) => {
         </section>
         {page.map((item, index) => {
           return (
-            <React.Fragment key={item.id}>
+            <React.Fragment key={index}>
               <QuestionAnswer content={item} order={index} />
             </React.Fragment>
           );
