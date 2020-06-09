@@ -31,12 +31,13 @@ const HowYouCanHelp = (props) => {
                       <p className={`big-caslon-font text-lg`}>
                         {block.subheadline}
                       </p>
-                      {parse(block.textBlock)}
+                      <div className="text-base">{parse(block.textBlock)}</div>
                       {block.customUrl ? (
                         <a
                           href={block.ctaButtonUrl}
                           className={`btn med-pink`}
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           {block.ctaButtonText}
                         </a>
@@ -67,6 +68,27 @@ const HowYouCanHelp = (props) => {
                     <p className={`big-caslon-font text-lg`}>
                       {block.subheadline}
                     </p>
+                    {block.customUrl ? (
+                      <a
+                        href={block.ctaUrl}
+                        className={`caps-font text-sm`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        {block.ctaText}
+                      </a>
+                    ) : (
+                      <AniLink
+                        preventScrollJump
+                        fade
+                        to={`/${block.ctaUrlPageLink.slug}`}
+                        className={`caps-font text-sm`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        {block.ctaText}
+                      </AniLink>
+                    )}
                   </div>
                 )}
               </React.Fragment>

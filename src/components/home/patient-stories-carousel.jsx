@@ -8,18 +8,18 @@ class PatientStoriesCarousel extends Component {
     this.state = {
       images: [],
       navImages: null,
-      navContent: null
+      navContent: null,
     };
   }
 
   componentDidMount() {
     this.setState({
       navImages: this.navImages,
-      navContent: this.navContent
+      navContent: this.navContent,
     });
-    this.props.content.map(item => {
-      this.setState(prevState => ({
-        images: [...prevState.images, item.image]
+    this.props.content.map((item) => {
+      this.setState((prevState) => ({
+        images: [...prevState.images, item.image],
       }));
     });
   }
@@ -31,7 +31,7 @@ class PatientStoriesCarousel extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      fade: true
+      fade: true,
     };
     const contentSettings = {
       dots: true,
@@ -39,8 +39,10 @@ class PatientStoriesCarousel extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
       fade: true,
-      adaptiveHeight: true
+      adaptiveHeight: true,
     };
 
     const { title, content } = this.props;
@@ -53,10 +55,10 @@ class PatientStoriesCarousel extends Component {
             <Slider
               {...imageSettings}
               asNavFor={this.state.navContent}
-              ref={slider => (this.navImages = slider)}
+              ref={(slider) => (this.navImages = slider)}
               className="images"
             >
-              {images.map(item => {
+              {images.map((item) => {
                 return (
                   <React.Fragment key={item.url}>
                     <div
@@ -77,16 +79,16 @@ class PatientStoriesCarousel extends Component {
               <Slider
                 {...contentSettings}
                 asNavFor={this.state.navImages}
-                ref={slider => (this.navContent = slider)}
+                ref={(slider) => (this.navContent = slider)}
               >
-                {content.map(item => {
+                {content.map((item) => {
                   return (
                     <div key={item.id}>
                       <div className="inner lg-gap">
                         <p className="big-caslon-font text-lg">
                           {item.headline}
                         </p>
-                        {parse(item.copy)}
+                        <div className="text-base">{parse(item.copy)}</div>
                       </div>
                       {/* <Img fluid={item.image.fluid} /> */}
                     </div>

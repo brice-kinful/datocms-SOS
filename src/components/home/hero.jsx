@@ -13,7 +13,7 @@ const Hero = (props) => {
           <React.Fragment key={block.id}>
             {block.__typename === "DatoCmsHeadline" && (
               <div className={`headline wrapper`}>
-                <div className="two-thirds">
+                <div className="">
                   <h2 className={`big-caslon-font text-3xl`}>{block.text}</h2>
                 </div>
               </div>

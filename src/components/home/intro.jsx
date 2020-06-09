@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Img from "gatsby-image";
 import parse from "html-react-parser";
-import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+// import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const Intro = (props) => {
   const { content } = props;
   const [scrollPos, setScrollPos] = useState(0);
 
-  useScrollPosition(({ prevPos, currPos }) => {
-    setScrollPos(currPos.y / 4);
+  // useScrollPosition(({ prevPos, currPos }) => {
+  //   setScrollPos(currPos.y / 4);
+  // });
+
+  const trackMovement = (e) => {
+    setScrollPos(document.body.getBoundingClientRect().top);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", trackMovement);
+    return () => {
+      window.removeEventListener("scroll", trackMovement);
+    };
   });
 
   const imageMovement = {
-    transform: `translateY(${scrollPos}px)`,
+    transform: `translateY(${scrollPos / 9}px)`,
   };
 
   return (

@@ -1,6 +1,5 @@
 import React from "react";
 import parse from "html-react-parser";
-import Img from "gatsby-image";
 
 const WhatWeDo = (props) => {
   const { content } = props;
@@ -22,7 +21,7 @@ const WhatWeDo = (props) => {
                     <p className={`big-caslon-font text-lg`}>
                       {block.headline}
                     </p>
-                    {parse(block.copy)}
+                    <div className="text-base">{parse(block.copy)}</div>
                   </div>
                 </div>
               )}
@@ -38,6 +37,7 @@ const WhatWeDo = (props) => {
                         >
                           <img
                             src={item.url}
+                            alt=""
                             style={{
                               width: "120px",
                               height: "100px",

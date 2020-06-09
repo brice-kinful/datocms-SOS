@@ -37,6 +37,9 @@ const Layout = ({ children }) => {
                   ... on DatoCmsFaqsPage {
                     slug
                   }
+                  ... on DatoCmsPage {
+                    slug
+                  }
                 }
                 customUrl
                 menuItemCustomLink
@@ -55,6 +58,9 @@ const Layout = ({ children }) => {
                     slug
                   }
                   ... on DatoCmsFaqsPage {
+                    slug
+                  }
+                  ... on DatoCmsPage {
                     slug
                   }
                 }

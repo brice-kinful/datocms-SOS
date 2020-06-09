@@ -5,7 +5,7 @@ const Footer = (props) => {
   // console.log(props);
   return (
     <section id="footer" className="pad-med">
-      {process.env.NODE_ENV != "development" && (
+      {process.env.NODE_ENV !== "development" && (
         <Instagram social={props.allDatoCmsSocialProfile} />
       )}
       <div className={`wrapper flex space-between`}>
@@ -24,6 +24,7 @@ const Footer = (props) => {
             href="https://facebook.com"
             className="nobel-font uppercase"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Facebook
           </a>
@@ -31,6 +32,7 @@ const Footer = (props) => {
             href="https://instagram.com"
             className="nobel-font uppercase"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Instagram
           </a>

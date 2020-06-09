@@ -38,9 +38,10 @@ class Instagram extends Component {
                     <a
                       href={`https://www.instagram.com/p/${node.shortcode}`}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="one-fifth grid-item"
                     >
-                      <img src={node.thumbnail_src} />
+                      <img src={node.thumbnail_src} alt="" />
                     </a>
                   </React.Fragment>
                 );

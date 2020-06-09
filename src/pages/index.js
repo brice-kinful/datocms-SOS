@@ -125,6 +125,21 @@ export const query = graphql`
           headline
           subheadline
           ctaText
+          ctaUrlPageLink {
+            ... on DatoCmsAboutPage {
+              slug
+            }
+            ... on DatoCmsAssistancePage {
+              slug
+            }
+            ... on DatoCmsFaqsPage {
+              slug
+            }
+            ... on DatoCmsPage {
+              slug
+            }
+          }
+          customUrl
           ctaUrl
         }
       }

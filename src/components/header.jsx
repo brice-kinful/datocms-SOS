@@ -57,6 +57,7 @@ class Header extends Component {
                       <a
                         href={item.menuItemCustomLink}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className={
                           item.isThisAButton
                             ? `btn black`
@@ -100,6 +101,7 @@ class Header extends Component {
                       <a
                         href={item.menuItemCustomLink}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className={
                           item.isThisAButton
                             ? `btn black`

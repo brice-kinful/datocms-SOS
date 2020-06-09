@@ -6,7 +6,7 @@ const QuestionAnswer = (props) => {
   const { order } = props;
   //   console.log(item);
   return (
-    <section className={`q_a no-bottom-pad${order != 0 ? " no-top-pad" : ""}`}>
+    <section className={`q_a no-bottom-pad${order !== 0 ? " no-top-pad" : ""}`}>
       <div className="wrapper md">
         <p className="question big-caslon-font text-xl center-text">
           {item.question}

@@ -28,7 +28,7 @@ const Cta = (props) => {
           ) : (
             <Link
               key={cta.id}
-              to={`/${cta.buttonUrl.slug == "home" ? "" : cta.buttonUrl.slug}`}
+              to={`/${cta.buttonUrl.slug === "home" ? "" : cta.buttonUrl.slug}`}
               className="btn chunky med-pink"
             >
               {cta.buttonText}

@@ -1,15 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
 
-const CommunityCarousel = props => {
+const CommunityCarousel = (props) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     fade: true,
-    adaptiveHeight: true
+    adaptiveHeight: true,
   };
 
   const { title, content } = props;
@@ -21,7 +23,7 @@ const CommunityCarousel = props => {
           {title}
         </h3>
         <Slider {...settings} className="center-text">
-          {content.map(item => {
+          {content.map((item) => {
             return (
               <div key={item.id}>
                 <p className={`quote big-caslon-italic-font text-lg`}>

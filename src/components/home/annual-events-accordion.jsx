@@ -73,7 +73,7 @@ class AnnualEventsAccordion extends Component {
                       {item.title}
                       <span
                         className={`plus-minus-toggle ${
-                          activeIndex != index ? "collapsed" : ""
+                          activeIndex !== index ? "collapsed" : ""
                         }`}
                       ></span>
                     </Accordion.Title>
@@ -82,7 +82,7 @@ class AnnualEventsAccordion extends Component {
                       index={index}
                       className="inner"
                     >
-                      {parse(item.copy)}
+                      <div className="text-base">{parse(item.copy)}</div>
                     </Accordion.Content>
                   </React.Fragment>
                 );

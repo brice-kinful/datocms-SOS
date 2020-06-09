@@ -40,7 +40,7 @@ const Application = (props) => {
             <Link
               key={application.id}
               to={`/${
-                application.buttonUrl.slug == "home"
+                application.buttonUrl.slug === "home"
                   ? ""
                   : application.buttonUrl.slug
               }`}
