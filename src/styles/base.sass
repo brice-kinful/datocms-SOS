@@ -198,5 +198,21 @@ section
         display: none !important
 
 @media screen and (max-width: 860px)
+    .tl-wrapper
+        overflow: hidden
     .show_860
         display: none !important
+    .flex
+        flex-wrap: wrap
+    .wrapper
+        padding-left: 25px
+        padding-right: 25px
+    section, section.pad-med
+        padding-top: 50px
+        padding-bottom: 50px
+    section.pad-bottom-med
+        padding-bottom: 50px
+    .inner.lg-gap > *, ul > *, .wrapper.content.lg-gap > *
+        margin-bottom: 25px
+        &:last-child
+            margin-bottom: 0

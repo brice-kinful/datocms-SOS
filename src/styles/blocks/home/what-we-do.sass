@@ -6,3 +6,17 @@ section.what-we-do
         padding-right: 7%
     .images .inner
         padding-left: 20%
+
+@media screen and ( max-width: 860px )
+    section.what-we-do
+        .text,.images
+            width: 100%
+            padding-left: 0
+            padding-right: 0
+            .inner
+                padding-left: 0
+        .images
+            padding-top: 50px
+            @supports (display: grid)
+                .grid
+                    grid-gap: 50px

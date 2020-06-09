@@ -23,7 +23,7 @@ const Intro = (props) => {
             <React.Fragment key={index}>
               {block.__typename === "DatoCmsImage" && (
                 <div className={`two-fifths image`} style={imageMovement}>
-                  <div className="inner">
+                  <div className="inner show_860">
                     <Img fluid={block.image.fluid} />
                   </div>
                 </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { TransitionState } from "gatsby-plugin-transition-link";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -93,7 +93,7 @@ const Layout = ({ children }) => {
 
             <TransitionState>
               {({ mount, transitionStatus }) => {
-                console.log(transitionStatus);
+                // console.log(transitionStatus);
                 mount &&
                   setTimeout(() => {
                     window.scrollTo(0, 1);

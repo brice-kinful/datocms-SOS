@@ -29,3 +29,12 @@
         .grid-item
             width: initial !important
             padding: 0 !important
+
+@media screen and ( max-width: 600px )
+    .flex.grid
+        display: -ms-grid
+        display: grid
+
+        &.three
+            -ms-grid-columns: 1fr 1fr
+            grid-template-columns: 1fr 1fr

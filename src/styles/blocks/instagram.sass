@@ -7,3 +7,18 @@ section.instagram
     @supports (display: -ms-grid) or (display: grid)
         .flex.grid
             grid-gap: 75px
+
+@media screen and ( max-width: 860px )
+    section.instagram
+        .grid-item:last-child
+            display: none
+        @supports (display: -ms-grid) or (display: grid)
+            .flex.grid
+                grid-gap: 50px
+
+@media screen and ( max-width: 600px )
+    section.instagram
+        @supports (display: -ms-grid) or (display: grid)
+            .flex.grid
+                grid-template-columns: 1fr 1fr
+                grid-gap: 25px
