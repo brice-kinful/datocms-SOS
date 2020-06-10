@@ -19,7 +19,7 @@ class Header extends Component {
       isMenuOpen: false,
       scrollPos: window.pageYOffset,
     }));
-    console.log(this.state.scrollPos);
+    // console.log(this.state.scrollPos);
     if (this.state.scrollPos > 150) {
       this.setState((state) => ({
         scrolledPastHeader: true,
@@ -174,7 +174,7 @@ class Header extends Component {
               </ul>
             </div>
             <div className="one-fifth">
-              <div className="logo-container">
+              <div className="logo-container center-text">
                 <AniLink preventScrollJump fade to="/">
                   {/* <img src="/images/SOS_Logo.svg" alt="" /> */}
                   <Logo />
