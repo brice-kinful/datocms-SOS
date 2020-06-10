@@ -77,11 +77,7 @@ class Header extends Component {
                       href={item.menuItemCustomLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
+                      className="nobel-font text-md uppercase"
                     >
                       {item.menuItemText}
                     </a>
@@ -93,11 +89,33 @@ class Header extends Component {
                       fade
                       to={`/${item.menuItemPageLink.slug}`}
                       activeClassName="active"
-                      className={
-                        item.isThisAButton
-                          ? `btn black`
-                          : `nobel-font text-md uppercase`
-                      }
+                      className="nobel-font text-md uppercase"
+                    >
+                      {item.menuItemText}
+                    </AniLink>
+                  </li>
+                );
+              })}
+              {rightMenu.map((item) => {
+                return item.customUrl ? (
+                  <li key={item.id}>
+                    <a
+                      href={item.menuItemCustomLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="nobel-font text-md uppercase"
+                    >
+                      {item.menuItemText}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={item.id}>
+                    <AniLink
+                      preventScrollJump
+                      fade
+                      to={`/${item.menuItemPageLink.slug}`}
+                      activeClassName="active"
+                      className="nobel-font text-md uppercase"
                     >
                       {item.menuItemText}
                     </AniLink>

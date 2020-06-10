@@ -4,6 +4,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import { TransitionState } from "gatsby-plugin-transition-link";
 // import { motion, AnimatePresence } from "framer-motion";
 
+import PromoBar from "./promo-bar";
 import Header from "./header";
 import Footer from "./footer";
 
@@ -21,6 +22,29 @@ const Layout = ({ children }) => {
             faviconMetaTags {
               ...GatsbyDatoCmsFaviconMetaTags
             }
+          }
+          datoCmsPromoBar {
+            enablePromoBar
+            promoText
+            promoBarBackgroundColor {
+              hex
+            }
+            promoBarPageLink {
+              ... on DatoCmsAssistancePage {
+                slug
+              }
+              ... on DatoCmsPage {
+                slug
+              }
+              ... on DatoCmsAboutPage {
+                slug
+              }
+              ... on DatoCmsFaqsPage {
+                slug
+              }
+            }
+            promoBarCustomUrl
+            promoBarExternalUrl
           }
           datoCmsMainMenu {
             leftMenuItems {
@@ -92,6 +116,7 @@ const Layout = ({ children }) => {
               favicon={data.datoCmsSite.faviconMetaTags}
               seo={data.datoCmsHome.seoMetaTags}
             />
+            {data.datoCmsPromoBar && <PromoBar {...data.datoCmsPromoBar} />}
             <Header
               leftMenu={data.datoCmsMainMenu.leftMenuItems}
               rightMenu={data.datoCmsMainMenu.rightMenuItems}
@@ -100,10 +125,10 @@ const Layout = ({ children }) => {
             <TransitionState>
               {({ mount, transitionStatus }) => {
                 // console.log(transitionStatus);
-                mount &&
+                transitionStatus == "entering" &&
                   setTimeout(() => {
                     window.scrollTo(0, 1);
-                  }, 150);
+                  }, 500);
                 return <>{children}</>;
               }}
             </TransitionState>
