@@ -1,5 +1,5 @@
 #menu_drawer
-    position: absolute
+    position: fixed
     width: 100%
     height: auto
     top: 25px
@@ -17,7 +17,7 @@
     &.open
         opacity: 1
         visibility: visible
-        transform: translateY(100%)
+        transform: translateY(80px)
 
     .flex
         height: 100%
@@ -134,7 +134,7 @@
             transform: translateY(0)
 
 @media screen and ( max-width: 1060px )
-    #menu_toggle
+    #menu_toggle, #menu_drawer
         position: absolute
 
 @media screen and ( max-width: 860px )
