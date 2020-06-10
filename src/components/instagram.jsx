@@ -12,7 +12,7 @@ class Instagram extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://www.instagram.com/shareoursuzylowcountry/?__a=1`)
+      .get(`https://www.instagram.com/${this.props.handle}/?__a=1`)
       .then((res) => {
         const data = res.data.graphql.user.edge_owner_to_timeline_media.edges;
         this.setState((prevState) => ({
@@ -27,7 +27,7 @@ class Instagram extends Component {
       <section className="instagram">
         <div className="wrapper xl">
           <div className="handle nobel-font uppercase center-text">
-            @shareoursuzylowcountry
+            @{this.props.handle}
           </div>
           <div className="flex grid five">
             {arr.map((grams) => {

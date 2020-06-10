@@ -33,9 +33,6 @@ const Layout = ({ children }) => {
               ... on DatoCmsAssistancePage {
                 slug
               }
-              ... on DatoCmsPage {
-                slug
-              }
               ... on DatoCmsAboutPage {
                 slug
               }
@@ -61,9 +58,6 @@ const Layout = ({ children }) => {
                   ... on DatoCmsFaqsPage {
                     slug
                   }
-                  ... on DatoCmsPage {
-                    slug
-                  }
                 }
                 customUrl
                 menuItemCustomLink
@@ -84,9 +78,6 @@ const Layout = ({ children }) => {
                   ... on DatoCmsFaqsPage {
                     slug
                   }
-                  ... on DatoCmsPage {
-                    slug
-                  }
                 }
                 customUrl
                 menuItemCustomLink
@@ -99,13 +90,8 @@ const Layout = ({ children }) => {
               ...GatsbyDatoCmsSeoMetaTags
             }
           }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-            edges {
-              node {
-                profileType
-                slug
-              }
-            }
+          datoCmsInstagram {
+            handle
           }
         }
       `}
@@ -134,7 +120,7 @@ const Layout = ({ children }) => {
             </TransitionState>
             {/* {children} */}
 
-            <Footer />
+            <Footer handle={data.datoCmsInstagram.handle} />
           </>
         );
       }}

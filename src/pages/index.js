@@ -116,7 +116,15 @@ export const query = graphql`
           ctaButtonText
           customUrl
           ctaButtonUrlPageLink {
-            slug
+            ... on DatoCmsAboutPage {
+              slug
+            }
+            ... on DatoCmsAssistancePage {
+              slug
+            }
+            ... on DatoCmsFaqsPage {
+              slug
+            }
           }
           ctaButtonUrl
         }
@@ -133,9 +141,6 @@ export const query = graphql`
               slug
             }
             ... on DatoCmsFaqsPage {
-              slug
-            }
-            ... on DatoCmsPage {
               slug
             }
           }

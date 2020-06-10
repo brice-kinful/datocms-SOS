@@ -78,9 +78,6 @@ export const query = graphql`
             ... on DatoCmsFaqsPage {
               slug
             }
-            ... on DatoCmsPage {
-              slug
-            }
           }
           externalButtonUrlToggle
           externalButtonUrl

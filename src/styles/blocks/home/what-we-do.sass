@@ -31,3 +31,8 @@ section.what-we-do
             @supports (display: grid)
                 .grid
                     grid-gap: 50px
+
+@media screen and ( max-width: 480px )
+    @supports (display: grid)
+        section.what-we-do .images .grid
+            grid-gap: 15px

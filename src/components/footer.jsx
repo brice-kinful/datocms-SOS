@@ -6,7 +6,7 @@ const Footer = (props) => {
   return (
     <section id="footer">
       {/* {process.env.NODE_ENV !== "development" && ( */}
-      <Instagram social={props.allDatoCmsSocialProfile} />
+      <Instagram handle={props.handle} />
       {/* )} */}
       <div className={`wrapper flex space-between`}>
         <div className="one-half">
