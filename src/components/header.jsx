@@ -8,33 +8,51 @@ class Header extends Component {
     super(props);
     this.state = {
       isMenuOpen: false,
+      scrollPos: 0,
+      scrolledPastHeader: false,
     };
   }
 
+  trackHeaderScroll = (e) => {
+    this.setState((state) => ({
+      isMenuOpen: false,
+      scrollPos: window.pageYOffset,
+    }));
+    console.log(this.state.scrollPos);
+    if (this.state.scrollPos > 150) {
+      this.setState((state) => ({
+        scrolledPastHeader: true,
+      }));
+    } else {
+      this.setState((state) => ({
+        scrolledPastHeader: false,
+      }));
+    }
+  };
+
   componentDidMount() {
-    document.body.classList.remove("menu-open");
+    // document.body.classList.remove("menu-open");
+    window.addEventListener("scroll", this.trackHeaderScroll);
     this.setState((state) => ({
       isMenuOpen: false,
     }));
   }
 
-  openMenu = (e) => {
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.trackHeaderScroll);
+  }
+
+  menuToggle = (e) => {
     e.preventDefault();
     // console.log('clicked')
     this.setState((state) => ({
       isMenuOpen: !state.isMenuOpen,
     }));
-    if (this.state.isMenuOpen) {
-      document.body.classList.remove("menu-open");
-    } else {
-      document.body.classList.add("menu-open");
-    }
-  };
-
-  closeMenu = (e) => {
-    if (this.state.isMenuOpen) {
-      document.body.classList.remove("menu-open");
-    }
+    // if (this.state.isMenuOpen) {
+    //   document.body.classList.remove("menu-open");
+    // } else {
+    //   document.body.classList.add("menu-open");
+    // }
   };
 
   render() {
@@ -45,9 +63,58 @@ class Header extends Component {
     return (
       <>
         <div id="header">
+          <div
+            id="menu_drawer"
+            className={`${this.state.isMenuOpen ? "open" : ""}${
+              this.state.scrolledPastHeader ? " scrolled" : ""
+            }`}
+          >
+            <ul className={`flex wrap align-center justify-center`}>
+              {leftMenu.map((item) => {
+                return item.customUrl ? (
+                  <li key={item.id}>
+                    <a
+                      href={item.menuItemCustomLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
+                    >
+                      {item.menuItemText}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={item.id}>
+                    <AniLink
+                      preventScrollJump
+                      fade
+                      to={`/${item.menuItemPageLink.slug}`}
+                      activeClassName="active"
+                      className={
+                        item.isThisAButton
+                          ? `btn black`
+                          : `nobel-font text-md uppercase`
+                      }
+                    >
+                      {item.menuItemText}
+                    </AniLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
           <div className={`wrapper flex space-between full`}>
             <div className="left two-fifths">
-              <button id="menu_toggle" className="hide_1060">
+              <button
+                id="menu_toggle"
+                className={`${this.state.isMenuOpen ? "open" : ""}${
+                  this.state.scrolledPastHeader ? " scrolled" : ""
+                }`}
+                onClick={this.menuToggle}
+              >
                 <span></span>
               </button>
               <ul className={`flex wrap show_1060`}>
@@ -78,6 +145,7 @@ class Header extends Component {
                             ? `btn black`
                             : `nobel-font text-md uppercase`
                         }
+                        activeClassName="active"
                       >
                         {item.menuItemText}
                       </AniLink>
@@ -122,6 +190,7 @@ class Header extends Component {
                             ? `btn black`
                             : `nobel-font text-md uppercase`
                         }
+                        activeClassName="active"
                       >
                         {item.menuItemText}
                       </AniLink>

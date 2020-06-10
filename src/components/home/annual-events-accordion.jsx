@@ -3,6 +3,7 @@ import { Accordion } from "semantic-ui-react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import parse from "html-react-parser";
 import Img from "gatsby-image";
+import AniLink from "../transitions/AniLink";
 
 import "../../styles/blocks/accordion.sass";
 
@@ -68,7 +69,7 @@ class AnnualEventsAccordion extends Component {
                       index={index}
                       name="dropdown"
                       onClick={this.handleClick}
-                      className="big-caslon-font text-4xl"
+                      className="big-caslon-font text-3xl"
                     >
                       {item.title}
                       <span
@@ -83,6 +84,29 @@ class AnnualEventsAccordion extends Component {
                       className="inner"
                     >
                       <div className="text-base inner">{parse(item.copy)}</div>
+                      {item.ctaButtonUrl && (
+                        <div>
+                          {item.ctaButtonUrl.startsWith("/") ? (
+                            <AniLink
+                              preventScrollJump
+                              fade
+                              to={item.ctaButtonUrl}
+                              className="btn med-pink"
+                            >
+                              {item.menuItemText}
+                            </AniLink>
+                          ) : (
+                            <a
+                              href={item.ctaButtonUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn med-pink"
+                            >
+                              {item.ctaButtonText}
+                            </a>
+                          )}
+                        </div>
+                      )}
                     </Accordion.Content>
                   </React.Fragment>
                 );

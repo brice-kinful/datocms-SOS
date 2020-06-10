@@ -172,6 +172,8 @@ export const query = graphql`
             ...GatsbyDatoCmsFluid
           }
         }
+        ctaButtonText
+        ctaButtonUrl
       }
     }
   }

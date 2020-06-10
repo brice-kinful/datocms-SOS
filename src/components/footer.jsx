@@ -4,7 +4,7 @@ import Instagram from "./instagram";
 const Footer = (props) => {
   // console.log(props);
   return (
-    <section id="footer" className="pad-med">
+    <section id="footer">
       {process.env.NODE_ENV !== "development" && (
         <Instagram social={props.allDatoCmsSocialProfile} />
       )}

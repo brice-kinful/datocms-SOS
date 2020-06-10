@@ -1,3 +1,6 @@
+.tl-edges
+    overflow-x: visible
+
 body
     color: $black
 
@@ -132,8 +135,8 @@ section
     width: 100%
     max-width: 1680px
     margin: 0 auto
-    padding-left: 40px
-    padding-right: 40px
+    padding-left: 60px
+    padding-right: 60px
 
     &.full
         max-width: 100%
@@ -149,12 +152,18 @@ section
 
     &.sm-2
         max-width: 900px
+        padding-left: 40px
+        padding-right: 40px
 
     &.sm
         max-width: 720px
+        padding-left: 40px
+        padding-right: 40px
 
     &.xs
         max-width: 600px
+        padding-left: 40px
+        padding-right: 40px
 
 .overlay
     position: relative
@@ -199,12 +208,12 @@ section
 
 @media screen and (max-width: 860px)
     .tl-wrapper
-        overflow: hidden
+        // overflow: hidden
     .show_860
         display: none !important
     .flex
         flex-wrap: wrap
-    .wrapper
+    .wrapper, .wrapper.sm-2, .wrapper.sm, .wrapper.xs
         padding-left: 25px
         padding-right: 25px
     section, section.pad-med

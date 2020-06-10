@@ -1,5 +1,6 @@
 #header .wrapper
     padding: 25px
+    z-index: 10
 
 #header ul
     list-style: none
@@ -28,6 +29,18 @@
     height: 95px
     max-width: 212px
 
+@media screen and ( max-width: 1060px )
+    #header
+        position: sticky
+        top: 0
+        z-index: 99
+        .wrapper
+            background: white
+            padding: 15px 25px
+        img
+            height: 66px
+            max-width: 150px
+
 @media screen and ( max-width: 860px )
     #header
         .one-fifth
@@ -35,4 +48,4 @@
         .two-fifths
             width: 30%
         img
-            height: auto
+            height: 50px

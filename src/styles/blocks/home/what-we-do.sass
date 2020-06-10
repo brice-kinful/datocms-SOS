@@ -7,6 +7,17 @@ section.what-we-do
     .images .inner
         padding-left: 20%
 
+@media screen and (max-width: 1200px)
+    section.what-we-do
+        @supports (display: grid)
+            .flex.grid
+                grid-gap: 25px
+                img
+                    width: 75px !important
+                    height: 75px !important
+        .images .inner
+            padding-left: 25px
+
 @media screen and ( max-width: 860px )
     section.what-we-do
         .text,.images
