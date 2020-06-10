@@ -16,7 +16,7 @@ const Hero = (props) => {
       )}
       {hero.headline && (
         <div className={`headline wrapper`}>
-          <div className="two-thirds">
+          <div>
             <h2 className={`big-caslon-font text-3xl`}>{hero.headline}</h2>
           </div>
         </div>

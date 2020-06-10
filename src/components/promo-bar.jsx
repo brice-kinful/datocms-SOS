@@ -2,7 +2,7 @@ import React from "react";
 import AniLink from "./transitions/AniLink";
 
 const PromoBar = (props) => {
-  console.log(props);
+  // console.log(props);
   const style = {
     paddingBottom: "10px",
     paddingTop: "10px",

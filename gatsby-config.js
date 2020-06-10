@@ -16,6 +16,14 @@ module.exports = {
         // data: `@import "${__dirname}/src/styles/index";`,
       }
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-datocms`,

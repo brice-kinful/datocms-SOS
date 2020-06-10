@@ -5,9 +5,9 @@ const Footer = (props) => {
   // console.log(props);
   return (
     <section id="footer">
-      {process.env.NODE_ENV !== "development" && (
-        <Instagram social={props.allDatoCmsSocialProfile} />
-      )}
+      {/* {process.env.NODE_ENV !== "development" && ( */}
+      <Instagram social={props.allDatoCmsSocialProfile} />
+      {/* )} */}
       <div className={`wrapper flex space-between`}>
         <div className="one-half">
           <p>PO Box 1778</p>

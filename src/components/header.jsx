@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "gatsby";
 // import Link from "gatsby-plugin-transition-link";/
 import AniLink from "./transitions/AniLink";
+import Logo from "../../static/images/SOS_Logo.svg";
 
 class Header extends Component {
   constructor(props) {
@@ -175,7 +176,8 @@ class Header extends Component {
             <div className="one-fifth">
               <div className="logo-container">
                 <AniLink preventScrollJump fade to="/">
-                  <img src="/images/SOS_Logo.svg" alt="" />
+                  {/* <img src="/images/SOS_Logo.svg" alt="" /> */}
+                  <Logo />
                 </AniLink>
               </div>
             </div>
