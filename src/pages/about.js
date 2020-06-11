@@ -12,11 +12,20 @@ import Cta from "../components/about/cta";
 import Board from "../components/about/board";
 
 const AboutPage = ({ data }) => {
-  const { page } = data.datoCmsAboutPage;
-  //   console.log(page);
+  const { page, pageTitle } = data.datoCmsAboutPage;
+  const { seoSettings } = data.datoCmsAboutPage;
+  const { title, description } = seoSettings;
+  const {
+    globalTitle,
+    globalDescription,
+  } = data.datoCmsSite.globalSeo.fallbackSeo;
+
   return (
     <Layout>
-      <HelmetDatoCms />
+      <HelmetDatoCms
+        title={title ? title : `${pageTitle} | Share Our Suzy`}
+        description={description ? description : globalDescription}
+      />
       <div id="about" className="page">
         {page.map(({ __typename }, index, item) => {
           switch (__typename) {
@@ -63,8 +72,20 @@ export default AboutPage;
 
 export const query = graphql`
   query AboutQuery {
+    datoCmsSite {
+      globalSeo {
+        fallbackSeo {
+          globalTitle: title
+          globalDescription: description
+        }
+      }
+    }
     datoCmsAboutPage {
-      title
+      seoSettings {
+        title
+        description
+      }
+      pageTitle: title
       page: aboutContent {
         ... on DatoCmsAboutHero {
           id

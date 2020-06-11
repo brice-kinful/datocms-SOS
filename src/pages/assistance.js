@@ -8,11 +8,20 @@ import Help from "../components/assistance/help";
 import Application from "../components/assistance/application";
 
 const AssistancePage = ({ data }) => {
-  const { page } = data.datoCmsAssistancePage;
+  const { page, pageTitle } = data.datoCmsAssistancePage;
+  const { seoSettings } = data.datoCmsAssistancfePage;
+  const { title, description } = seoSettings;
+  const {
+    globalTitle,
+    globalDescription,
+  } = data.datoCmsSite.globalSeo.fallbackSeo;
 
   return (
     <Layout>
-      <HelmetDatoCms />
+      <HelmetDatoCms
+        title={title ? title : `${pageTitle} | Share Our Suzy`}
+        description={description ? description : globalDescription}
+      />
       <div id="assistance" className="page">
         {/* <h1>{page.title}</h1> */}
         {page.map(({ __typename }, index, item) => {
@@ -48,8 +57,20 @@ export default AssistancePage;
 
 export const query = graphql`
   query AssistanceQuery {
+    datoCmsSite {
+      globalSeo {
+        fallbackSeo {
+          globalTitle: title
+          globalDescription: description
+        }
+      }
+    }
     datoCmsAssistancePage {
-      title
+      seoSettings {
+        title
+        description
+      }
+      pageTitle: title
       page: assistanceContent {
         ... on DatoCmsAssistanceHero {
           id

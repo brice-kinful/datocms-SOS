@@ -6,7 +6,11 @@ const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
-    title: `Share on Suzy`
+    title: `Share Our Suzy`,
+    titleTemplate: "%s | Share Our Suzy",
+    description: "To honor the spirit of Suzy Mcgrane by raising money and resources to assist and support breast cancer patients from diagnosis to remission.",
+    siteUrl: "https://shareoursuzy.netlify.app",
+    image: "/og-image.jpg", // Path to your image you placed in the 'static' folder    
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

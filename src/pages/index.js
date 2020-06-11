@@ -16,10 +16,20 @@ import AnnualEventsAccordion from "../components/home/annual-events-accordion";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
+  const { seoSettings, pageTitle } = datoCmsHome;
+  const { title, description } = seoSettings;
+
+  const {
+    globalTitle,
+    globalDescription,
+  } = data.datoCmsSite.globalSeo.fallbackSeo;
 
   return (
     <Layout>
-      <HelmetDatoCms />
+      <HelmetDatoCms
+        title={title ? title : `${pageTitle} | Share Our Suzy`}
+        description={description ? description : globalDescription}
+      />
       <div id="home" className={`page`}>
         <Hero content={datoCmsHome.hero} />
         <Intro content={datoCmsHome.intro} />
@@ -47,7 +57,20 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
+    datoCmsSite {
+      globalSeo {
+        fallbackSeo {
+          globalTitle: title
+          globalDescription: description
+        }
+      }
+    }
     datoCmsHome {
+      seoSettings {
+        title
+        description
+      }
+      pageTitle: title
       hero {
         ... on DatoCmsHeadline {
           id
