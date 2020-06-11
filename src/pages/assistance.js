@@ -9,7 +9,7 @@ import Application from "../components/assistance/application";
 
 const AssistancePage = ({ data }) => {
   const { page, pageTitle } = data.datoCmsAssistancePage;
-  const { seoSettings } = data.datoCmsAssistancfePage;
+  const { seoSettings } = data.datoCmsAssistancePage;
   const { title, description } = seoSettings;
   const {
     globalTitle,
