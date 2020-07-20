@@ -11,8 +11,8 @@ const PromoBar = (props) => {
       props.promoBarBackgroundColor.hex === "#231f20" ? "#ffffff" : "#231F20",
   };
   return (
-    <div className="promo-bar">
-      <div className="wrapper center-text caps-font text-sm" style={style}>
+    <div className="promo-bar" style={style}>
+      <div className="wrapper center-text caps-font text-sm">
         {props.promoBarPageLink ||
         (props.promoBarCustomUrl && props.promoBarExternalUrl !== "") ? (
           props.promoBarCustomUrl && props.promoBarExternalUrl !== "" ? (
@@ -20,7 +20,7 @@ const PromoBar = (props) => {
               href={props.promoBarExternalUrl}
               target="_blank"
               rel="noopener noreferrer"
-            >
+              style={{ textDecoration: "none" }}>
               {props.promoText}
             </a>
           ) : (
@@ -28,8 +28,8 @@ const PromoBar = (props) => {
               preventScrollJump
               fade
               to={`/${props.promoBarPageLink.slug}`}
-            >
-              {props.promoText}
+              style={{ textDecoration: "none" }}>
+              >{props.promoText}
             </AniLink>
           )
         ) : (

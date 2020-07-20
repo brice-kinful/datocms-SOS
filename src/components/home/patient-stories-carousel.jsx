@@ -40,7 +40,7 @@ class PatientStoriesCarousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 4500,
       fade: true,
       adaptiveHeight: true,
     };
@@ -56,16 +56,14 @@ class PatientStoriesCarousel extends Component {
               {...imageSettings}
               asNavFor={this.state.navContent}
               ref={(slider) => (this.navImages = slider)}
-              className="images"
-            >
+              className="images">
               {images.map((item) => {
                 return (
                   <React.Fragment key={item.url}>
                     <div
                       key={item.url}
                       className="bg"
-                      style={{ backgroundImage: `url(${item.url})` }}
-                    ></div>
+                      style={{ backgroundImage: `url(${item.url})` }}></div>
                   </React.Fragment>
                 );
               })}
@@ -79,8 +77,7 @@ class PatientStoriesCarousel extends Component {
               <Slider
                 {...contentSettings}
                 asNavFor={this.state.navImages}
-                ref={(slider) => (this.navContent = slider)}
-              >
+                ref={(slider) => (this.navContent = slider)}>
                 {content.map((item) => {
                   return (
                     <div key={item.id}>
@@ -88,7 +85,9 @@ class PatientStoriesCarousel extends Component {
                         <p className="big-caslon-font text-lg">
                           {item.headline}
                         </p>
-                        <div className="text-base inner">{parse(item.copy)}</div>
+                        <div className="text-base inner">
+                          {parse(item.copy)}
+                        </div>
                       </div>
                       {/* <Img fluid={item.image.fluid} /> */}
                     </div>

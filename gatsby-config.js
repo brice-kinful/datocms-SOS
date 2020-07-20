@@ -9,7 +9,7 @@ module.exports = {
     title: `Share Our Suzy`,
     titleTemplate: "%s | Share Our Suzy",
     description: "To honor the spirit of Suzy Mcgrane by raising money and resources to assist and support breast cancer patients from diagnosis to remission.",
-    siteUrl: "https://shareoursuzy.netlify.app",
+    siteUrl: "https://soslowcountry.org",
     image: "/og-image.jpg", // Path to your image you placed in the 'static' folder    
   },
   plugins: [
@@ -43,6 +43,13 @@ module.exports = {
         path: path.join(__dirname, `static`, `images`)
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-77338097-1",
+      },
+    },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`
