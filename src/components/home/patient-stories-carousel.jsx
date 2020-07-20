@@ -40,7 +40,7 @@ class PatientStoriesCarousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 4500,
+      autoplaySpeed: 8500,
       fade: true,
       adaptiveHeight: true,
     };
